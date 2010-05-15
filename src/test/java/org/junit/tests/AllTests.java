@@ -2,7 +2,9 @@ package org.junit.tests;
 
 import junit.framework.JUnit4TestAdapter;
 import junit.framework.Test;
+import org.junit.experimental.cpsuite.ClasspathSuiteConfigurationTest;
 import org.junit.experimental.cpsuite.ClasspathSuiteTest;
+import org.junit.experimental.cpsuite.InClasspathTest;
 import org.junit.experimental.cpsuite.internal.ClasspathClassesFinderTest;
 import org.junit.experimental.cpsuite.internal.ClasspathFinderFactoryTest;
 import org.junit.experimental.cpsuite.internal.ClasspathSuiteTesterTest;
@@ -142,9 +144,11 @@ import org.junit.tests.validation.ValidationTest;
 	ExternalResourceRuleTest.class,
 	VerifierRuleTest.class,
 	CategoryTest.class,
+	ClasspathSuiteConfigurationTest.class,
+	ClasspathSuiteTest.class,
+	InClasspathTest.class,
 	ClasspathClassesFinderTest.class,
 	ClasspathFinderFactoryTest.class,
-	ClasspathSuiteTest.class,
 	ClasspathSuiteTesterTest.class,
 	JarFilenameIteratorTest.class,
 	RecursiveFilenameIteratorTest.class
