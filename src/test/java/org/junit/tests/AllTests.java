@@ -2,6 +2,12 @@ package org.junit.tests;
 
 import junit.framework.JUnit4TestAdapter;
 import junit.framework.Test;
+import org.junit.experimental.cpsuite.ClasspathSuiteTest;
+import org.junit.experimental.cpsuite.internal.ClasspathClassesFinderTest;
+import org.junit.experimental.cpsuite.internal.ClasspathFinderFactoryTest;
+import org.junit.experimental.cpsuite.internal.ClasspathSuiteTesterTest;
+import org.junit.experimental.cpsuite.internal.JarFilenameIteratorTest;
+import org.junit.experimental.cpsuite.internal.RecursiveFilenameIteratorTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
@@ -135,7 +141,13 @@ import org.junit.tests.validation.ValidationTest;
 	TempFolderRuleTest.class,
 	ExternalResourceRuleTest.class,
 	VerifierRuleTest.class,
-	CategoryTest.class
+	CategoryTest.class,
+	ClasspathClassesFinderTest.class,
+	ClasspathFinderFactoryTest.class,
+	ClasspathSuiteTest.class,
+	ClasspathSuiteTesterTest.class,
+	JarFilenameIteratorTest.class,
+	RecursiveFilenameIteratorTest.class
 })
 public class AllTests {
 	public static Test suite() {
