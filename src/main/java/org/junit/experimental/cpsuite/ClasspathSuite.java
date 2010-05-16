@@ -21,6 +21,38 @@ import org.junit.runners.Suite;
 import org.junit.runners.model.InitializationError;
 import org.junit.runners.model.RunnerBuilder;
 
+/**
+ * Allows to run all tests on the classpath. Especially useful in a
+ * multi-project setting.
+ * <p>
+ * Here is a simple example which will run all regular JUnit 3 and 4 tests on
+ * the classpath that are not inside a JAR file:
+ * 
+ * <pre>
+ * &#064;RunWith(ClasspathSuite.class)
+ * &#064;SuiteTypes( { JUNIT38_TEST_CLASSES, TEST_CLASSES })
+ * public class AllTestClasses {
+ * 
+ * 	&#064;BeforeSuite
+ * 	public static void beforeAllTests() {
+ * 		// do something before the first test is run
+ * 	}
+ * 
+ * }
+ * </pre>
+ * 
+ * Class-level annotation allow for detailed configuration what tests are to be
+ * run, e.g. the {@link SuiteTypes} in the example above.
+ * <p>
+ * 
+ * @see ClassnameFilters
+ * @see IncludeJars
+ * @see SuiteTypes
+ * @see BaseTypeFilter
+ * @see ExcludeBaseTypeFilter
+ * @see ClasspathProperty
+ * @see ClassnameFilters
+ */
 public class ClasspathSuite extends Suite {
 
 	private final Class<?> fSuiteClass;
@@ -123,7 +155,8 @@ public class ClasspathSuite extends Suite {
 
 	private static Class<?>[] classesInClasspath(Class<?> suiteClass,
 			ClassesFinderFactory factory) {
-		InClasspath classpath= new ClasspathSuiteConfiguration(suiteClass, new InClasspath(factory)).read();
+		InClasspath classpath= new ClasspathSuiteConfiguration(suiteClass,
+				new InClasspath(factory)).read();
 		List<? extends Class<?>> classes= classpath.find();
 		return classes.toArray(new Class[classes.size()]);
 	}
