@@ -14,6 +14,7 @@ import java.lang.reflect.Modifier;
 import java.util.List;
 
 import org.junit.experimental.cpsuite.internal.ClassesFinderFactory;
+import org.junit.experimental.cpsuite.internal.ClasspathSuiteConfiguration;
 import org.junit.runner.notification.Failure;
 import org.junit.runner.notification.RunNotifier;
 import org.junit.runners.Suite;

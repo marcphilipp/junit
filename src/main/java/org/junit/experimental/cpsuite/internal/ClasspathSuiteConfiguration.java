@@ -1,7 +1,8 @@
-package org.junit.experimental.cpsuite;
+package org.junit.experimental.cpsuite.internal;
 
 import java.lang.annotation.Annotation;
 
+import org.junit.experimental.cpsuite.InClasspath;
 import org.junit.experimental.cpsuite.ClasspathSuite.BaseTypeFilter;
 import org.junit.experimental.cpsuite.ClasspathSuite.ClassnameFilters;
 import org.junit.experimental.cpsuite.ClasspathSuite.ClasspathProperty;

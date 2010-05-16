@@ -1,16 +1,19 @@
-package org.junit.experimental.cpsuite;
+package org.junit.experimental.cpsuite.internal;
 
 import static org.junit.experimental.cpsuite.SuiteType.JUNIT38_TEST_CLASSES;
 import static org.junit.experimental.cpsuite.SuiteType.RUN_WITH_CLASSES;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.experimental.cpsuite.ClasspathSuite;
+import org.junit.experimental.cpsuite.ClasspathSuiteTest;
+import org.junit.experimental.cpsuite.InClasspath;
+import org.junit.experimental.cpsuite.SuiteType;
 import org.junit.experimental.cpsuite.ClasspathSuite.BaseTypeFilter;
 import org.junit.experimental.cpsuite.ClasspathSuite.ClassnameFilters;
 import org.junit.experimental.cpsuite.ClasspathSuite.ClasspathProperty;
 import org.junit.experimental.cpsuite.ClasspathSuite.ExcludeBaseTypeFilter;
 import org.junit.experimental.cpsuite.ClasspathSuite.IncludeJars;
 import org.junit.experimental.cpsuite.ClasspathSuite.SuiteTypes;
-import org.junit.experimental.cpsuite.internal.ClassesFinderFactoryMock;
 import org.junit.runner.RunWith;
 
 public class ClasspathSuiteConfigurationTest {
