@@ -9,7 +9,7 @@ explicit test classes to consider running, and then filters it down
 to only those tests or classes annotated with `@Category(Yes.class)`:
 
 	@RunWith(SuiteBuilder.class)
-	public static class OnlyYes {
+	public class OnlyYes {
 		@Classes
 		public Listed classes= new Listed(Yes1.class, Yes2.class, No1.class);
 
@@ -17,8 +17,40 @@ to only those tests or classes annotated with `@Category(Yes.class)`:
 		public CategoryFilter filter= CategoryFilter.include(Yes.class);
 	}
 	
-We hope to soon include other implementations for the @Classes annotation,
-including a classpath-searching test gatherer.
+Besides `Listed` we also provide another implementations for the `@Classes`
+annotation that gathers test classes from the classpath:
+
+	@RunWith(SuiteBuilder.class)
+	public class OnlyYes {
+		@Classes
+		public InClasspath classes= new InClasspath().includingJars()
+				.filteredBy(".*Test", "!.*AllTests")
+				.includingSubclassesOf(MyBaseTest.class);
+		
+		@RunnerFilter
+		public CategoryFilter filter= CategoryFilter.include(Yes.class);
+	}
+
+The implementation reuses parts of the ClasspathSuite runner (see below).
+
+### ClasspathSuite ###
+
+The handy JUnit extension `ClasspathSuite` which was originally written and
+maintained by Johannes Link has been integrated into JUnit. If offers the same
+functionality as `InClasspath`, i.e. it runs all tests on the classpath, but
+as a separate test runner:
+
+	@RunWith(ClasspathSuite.class)
+	@SuiteTypes( { JUNIT38_TEST_CLASSES, TEST_CLASSES })
+	public class AllTestClasses {
+		@BeforeSuite
+		public static void beforeAllTests() {
+			// do something before the first test is run
+		}
+	}
+
+Class-level annotations allow for detailed configuration what tests are to be
+run. For details see the [How To](http://johanneslink.net/projects/cpsuite.jsp#howto).
 
 ### Bug fixes ###
 

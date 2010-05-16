@@ -9,7 +9,7 @@ explicit test classes to consider running, and then filters it down
 to only those tests or classes annotated with <code>@Category(Yes.class)</code>:</p>
 
 <pre><code>@RunWith(SuiteBuilder.class)
-public static class OnlyYes {
+public class OnlyYes {
     @Classes
     public Listed classes= new Listed(Yes1.class, Yes2.class, No1.class);
 
@@ -18,8 +18,42 @@ public static class OnlyYes {
 }
 </code></pre>
 
-<p>We hope to soon include other implementations for the @Classes annotation,
-including a classpath-searching test gatherer.</p>
+<p>Besides <code>Listed</code> we also provide another implementations for the <code>@Classes</code>
+annotation that gathers test classes from the classpath:</p>
+
+<pre><code>@RunWith(SuiteBuilder.class)
+public class OnlyYes {
+    @Classes
+    public InClasspath classes= new InClasspath().includingJars()
+            .filteredBy(".*Test", "!.*AllTests")
+            .includingSubclassesOf(MyBaseTest.class);
+
+    @RunnerFilter
+    public CategoryFilter filter= CategoryFilter.include(Yes.class);
+}
+</code></pre>
+
+<p>The implementation reuses parts of the ClasspathSuite runner (see below).</p>
+
+<h3>ClasspathSuite</h3>
+
+<p>The handy JUnit extension <code>ClasspathSuite</code> which was originally written and
+maintained by Johannes Link has been integrated into JUnit. If offers the same
+functionality as <code>InClasspath</code>, i.e. it runs all tests on the classpath, but
+as a separate test runner:</p>
+
+<pre><code>@RunWith(ClasspathSuite.class)
+@SuiteTypes( { JUNIT38_TEST_CLASSES, TEST_CLASSES })
+public class AllTestClasses {
+    @BeforeSuite
+    public static void beforeAllTests() {
+        // do something before the first test is run
+    }
+}
+</code></pre>
+
+<p>Class-level annotations allow for detailed configuration what tests are to be
+run. For details see the <a href="http://johanneslink.net/projects/cpsuite.jsp#howto">How To</a>.</p>
 
 <h3>Bug fixes</h3>
 

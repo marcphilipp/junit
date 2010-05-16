@@ -41,7 +41,7 @@ import org.junit.runners.model.RunnerBuilder;
  * }
  * </pre>
  * 
- * Class-level annotation allow for detailed configuration what tests are to be
+ * Class-level annotations allow for detailed configuration what tests are to be
  * run, e.g. the {@link SuiteTypes} in the example above.
  * <p>
  * 
