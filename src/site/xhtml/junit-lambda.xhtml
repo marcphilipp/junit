@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>JUnit Lambda</title>
+  </head>
+  <body>
+		<div>
+		<iframe style="display:block; margin: 0 auto;" width="940" height="529" src="https://www.youtube-nocookie.com/embed/Ai6M5G90Mlg?rel=0" frameborder="0" allowfullscreen="true"></iframe>
+		</div>
+    <hr />
+    <h2 align="center" class="muted">The crowdfunding campaign will start on August 1st, 2015!</h2>
+    <p align="center" style="font-size:150%">
+			<a class="btn btn-large btn-success" href="https://docs.google.com/forms/d/19-VHMXLYk9Hh0a3S6rYOXozU5WMX01wF3Z-BVkMy5J0/viewform" role="button">Get notified when it starts!</a>
+			<a class="btn btn-large btn-default" href="http://twitter.com/junitlambda" role="button">Follow @junitlambda on Twitter</a>
+		</p>
+    <hr />
+		<hr />
+    <h2>Why JUnit needs your support</h2>
+    <p>With 43 million downloads from Maven Central in 2014 <b>JUnit</b> still is the default testing library for Java. Millions of projects rely on it being both stable and allowing to test the latest features of the latest JDK. Moreover, many other testing libraries hook into JUnit as a way to enable IDE and build tool integration. Keeping JUnit in shape is a major task for those maintaining and evolving the library.</p>
+    <p>As of today, none of the active JUnit maintainers are payed by their employer to do this work. Not surprisingly many unresolved issues have piled up and, what's worse, there is no hope to get JUnit to support and make use of all the features in Java 8 any time soon. Since <i>Lambdas</i> are the most prominent of those features, we borrowed their name for the campaign.</p>
+    <p>This campaign will allow a team of long-time JUnit committers, backed by a few experienced Java developers, to focus on getting JUnit ready for the years - and JDKs - to come.</p>
+		<h2>Limitations of JUnit 4</h2>
+		<p>A major design goal of JUnit has always been simplicity. When JUnit 4 was released 10 years ago it was simple and it served its purpose very well. Since then many things have changed: Programming styles differ, Java got a couple of new versions, and many new testing frameworks and ideas about testing have popped up.</p>
+		<p>The basic design of JUnit, however, has remained the same since 2005. Some constructs - like rules - were added, but growing complexity was never taken out. This shows and leads to a few back-breaking issues:</p>
+		<ul>
+			<li>All IDEs and build tools depend on internals of JUnit. The API of running and reporting tests is missing some necessary features; this has been worked around using reflection and internal JUnit classes. Those "tricks" complicate the evolution of JUnit tremendously, and even make some changes virtually impossible.</li>
+			<li>Runners are the most crucial concept to enhance JUnit. But you can only have a single runner for each test class. If - for example - you want to use <code>SpringJUnit4ClassRunner</code> and <code>Parameterized</code> at the same time, you are screwed.</li>
+			<li>The current execution model requires all test cases to be known and instantiated a-priori. This can lead to a large memory footprint and prevents the dynamic creation of test cases as response to observed behaviour during test execution. This also means that you cannot use Streams (Java 8), e.g. in combination with <code>@Parameters</code>, to create your test data.</li>
+		</ul>
+    <h2>The Vision</h2>
+    <p>In preparation for the campaign we've identified two main areas to focus on during the upcoming JUnit overhaul:</p>
+    <ul>
+      <li><b>Decouple test execution and reporting from test definition and provisioning</b>: This will greatly simplify further evolution of JUnit and allow users to mix test specifications from different test libraries - like JUnit, Spock, ScalaTest and so on - more easily. You will even be able to have both JUnit 4 and JUnit Lambda in a single project.</li>
+			<li><b>Rethinking the JUnit's extensibility story:</b> Runners, Rules, subclassing and other techniques will be revamped into a cohesive set of constructs to enhance JUnit and to allow - if possible - the seamless combination of individual extensions.</li>
+      <li><b>Making use of Java 8 features (Lambdas, Streams, Interface default methods) for better assertions, generating test cases, formulating test hierachies, testing asynchronous code and other stuff</b>: We will provide those extensions in additional libraries to keep the JUnit core compatible with older JDKs.</li>
+    </ul>
+    <p>All development will happen openly on <a href="https://github.com/junit-team/junit" target="_blank">GitHub</a> in order to foster early feedback and detect problems as soon as possible.</p>
+  </body>
+</html>
