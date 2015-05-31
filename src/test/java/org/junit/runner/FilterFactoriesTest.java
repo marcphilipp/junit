@@ -4,7 +4,7 @@ import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.startsWith;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.Assume.assumeThat;
+import static org.hamcrest.junit.MatcherAssume.assumeThat;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.ExcludeCategories;

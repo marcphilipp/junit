@@ -2,14 +2,14 @@ package org.junit.tests.experimental;
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.junit.MatcherAssert.assertThat;
+import static org.hamcrest.junit.MatcherAssume.assumeThat;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 import static org.junit.Assume.assumeNoException;
 import static org.junit.Assume.assumeNotNull;
-import static org.junit.Assume.assumeThat;
 import static org.junit.Assume.assumeTrue;
 import static org.junit.experimental.results.PrintableResult.testResult;
 import static org.junit.experimental.results.ResultMatchers.isSuccessful;
